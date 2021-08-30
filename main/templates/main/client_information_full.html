@@ -1,0 +1,127 @@
+{% extends "main/base.html" %}
+{% block title %}Full view{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="table-responsive">
+            <table class="table">
+                <tbody class="">
+                    <tr>
+                        <th>
+                            ФИО
+                        </th>
+                        <th class="capitalize">
+                            {{clients.secondName}} {{clients.firstName}} {{clients.middleName}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Возраст
+                        </th>
+                        <th>
+                            {{clients.age}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Адрес
+                        </th>
+                        <th>
+                            {{clients.address}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Почта
+                        </th>
+                        <th>
+                            {{clients.mail}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            До
+                        </th>
+                        <th>
+                            <img src="{{clients.imgBefore.url}}" alt="" width="100px" height="100px"><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            После
+                        </th>
+                        <th>
+                            <img src="{{clients.imgAfter.url}}" alt="" width="100px" height="100px"><br>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Комментарий
+                        </th>
+                        <th>
+                            {{clients.comment1}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Комментарий
+                        </th>
+                        <th>
+                            {{clients.comment2}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Комментарий
+                        </th>
+                        <th>
+                            {{clients.comment3}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Sel
+                        </th>
+                        <th>
+                            {{clients.sel1}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Sel
+                        </th>
+                        <th>
+                            {{clients.sel2}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Sel
+                        </th>
+                        <th>
+                            {{clients.sel3}}
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Добавлен
+                        </th>
+                        <th>
+                            {{clients.date}}
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="col-md-2 col-sm-1">
+                        <div class="btn-group" role="group">
+                            <a href="/edit/{{clients.id}}" class="btn btn-success">Edit</a>
+                            <a href="/delete/{{clients.id}}" class="btn btn-success">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

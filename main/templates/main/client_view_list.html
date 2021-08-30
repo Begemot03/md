@@ -1,0 +1,80 @@
+{% extends "main/base.html" %}
+{% block title %}View{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+            <div class="input-group mt-5">
+                <input type="text" class="form-control" placeholder="ФИО" id="inp-sfm"/>
+                <div class="input-group-append">
+                    <a onclick="goToPage();" class="btn btn-success text-white">Поиск</a>
+                </div>
+            </div>
+        <div class="row justify-content-between">
+            {% for client in clients %}
+                <div class="col-md-5 mt-5">
+                    <div class="card">
+                        <div class="card-body capitalize">
+                            <h5 class="card-title">
+                                {{client.secondName}} {{client.firstName}} {{client.middleName}}
+                            </h5>
+                            
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Возраст: {{client.age}}</li>
+                            <li class="list-group-item">Адрес: {{client.address}}</li>
+                            <li class="list-group-item">Почта: {{client.mail}}</li>
+                            <li class="list-group-item">Добавлен: {{client.date}}</li>
+                        </ul>
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12 d-flex justify-content-center">
+                                        <div class="btn-group" role="group">
+                                            <a href="/edit/{{client.id}}" class="btn btn-success">Изменить</a>
+                                            <a href="/delete/{{client.id}}" class="btn btn-success">Удалить</a>
+                                            <a href="/fullInfo/{{client.id}}" class="btn btn-success">Больше</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                    <div class="container no-info">
+                        Нет никакой информации
+                    </div>
+            {% endfor %}
+        </div>
+        <nav class="mt-5 d-flex justify-content-end">
+            <ul class="pagination">
+                {%if fsm == '' %}
+                    <li class="page-item"><a href="/view?page={{pages.prev}}" aria-label="Previous" class="page-link">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Назад</span>
+                    </a></li>
+                    <li class="page-item"><a href="view?page={{pages.link.0}}" class="page-link">{{pages.link.0}}</a></li>
+                    <li class="page-item"><a href="view?page={{pages.link.1}}" class="page-link">{{pages.link.1}}</a></li>
+                    <li class="page-item"><a href="view?page={{pages.link.2}}" class="page-link">{{pages.link.2}}</a></li>
+                    <li class="page-item"><a href="view?page={{pages.next}}" aria-label="Next" class="page-link">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Вперед</span>
+                    </a></li>
+                {% else %}
+                    <li class="page-item"><a href="/view?page={{pages.prev}}&fsm={{fsm}}" aria-label="Previous" class="page-link">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Назад</span>
+                    </a></li>
+                    <li class="page-item"><a href="view?page={{pages.link.0}}&fsm={{fsm}}" class="page-link">{{pages.link.0}}</a></li>
+                    <li class="page-item"><a href="view?page={{pages.link.1}}&fsm={{fsm}}" class="page-link">{{pages.link.1}}</a></li>
+                    <li class="page-item"><a href="view?page={{pages.link.2}}&fsm={{fsm}}" class="page-link">{{pages.link.2}}</a></li>
+                    <li class="page-item"><a href="view?page={{pages.next}}&fsm={{fsm}}" aria-label="Next" class="page-link">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Вперед</span>
+                    </a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

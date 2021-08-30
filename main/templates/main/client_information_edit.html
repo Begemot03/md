@@ -1,0 +1,41 @@
+{% extends "main/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}ClientInfo{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <form method="POST" enctype=multipart/form-data>
+            {% csrf_token %}
+            <div id="div_id_secondName" class="form-group"> <label for="id_secondName" class=" requiredField">
+                Фамилия<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="secondName" placeholder="Фамилия" maxlength="20" class="textinput textInput form-control" required="" id="id_secondName" value="{{clients.secondName}}"> </div> </div>   
+            <div id="div_id_firstName" class="form-group"> <label for="id_firstName" class=" requiredField">
+                Имя<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="firstName" placeholder="Имя" maxlength="20" class="textinput textInput form-control" required="" id="id_firstName" value="{{clients.firstName}}"> </div> </div> 
+            <div id="div_id_middleName" class="form-group"> <label for="id_middleName" class=" requiredField">
+                Отчество<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="middleName" placeholder="Отчество" maxlength="20" class="textinput textInput form-control" required="" id="id_middleName" value="{{clients.middleName}}"> </div> </div> 
+            <div id="div_id_age" class="form-group"> <label for="id_age" class=" requiredField">
+                Возраст<span class="asteriskField">*</span> </label> <div class=""> <input type="number" name="age" class="numberinput form-control" min="0" required="" id="id_age" value="{{clients.age}}" placeholder="Возраст"> </div> </div> 
+            <div id="div_id_address" class="form-group"> <label for="id_address" class=" requiredField">
+                Адрес<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="address" placeholder="Адрес" maxlength="150" class="textinput textInput form-control" required="" id="id_address" value="{{clients.address}}"> </div> </div> 
+            <div id="div_id_mail" class="form-group"> <label for="id_mail" class=" requiredField">
+                Почта<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="mail" placeholder="Email" class="textinput textInput form-control" required="" id="id_mail" value="{{clients.mail}}"> </div> </div> 
+            <div id="div_id_imgBefore" class="form-group"> <label for="id_imgBefore" class=" requiredField">
+                До<span class="asteriskField">*</span> </label> <div class=""> <input type="file" name="imgBefore" accept="image/*" class="clearablefileinput form-control-file" required="" id="id_imgBefore" value="{{clients.imgBefore}}"> </div> </div> 
+            <div id="div_id_imgAfter" class="form-group"> <label for="id_imgAfter" class=" requiredField">
+                После<span class="asteriskField">*</span> </label> <div class=""> <input type="file" name="imgAfter" accept="image/*" class="clearablefileinput form-control-file" required="" id="id_imgAfter" value="{{clients.imgAfter}}"> </div> </div> 
+            <div id="div_id_comment1" class="form-group"> <label for="id_comment1" class=" requiredField">
+                Первый комментарий<span class="asteriskField">*</span> </label> <div class=""> <textarea name="comment1" cols="40" rows="10" placeholder="Комментарий" class="textarea form-control" required="" id="id_comment1">{{clients.comment1}}</textarea> </div> </div> 
+            <div id="div_id_comment2" class="form-group"> <label for="id_comment2" class=" requiredField">
+                Второй комментарий<span class="asteriskField">*</span> </label> <div class=""> <textarea name="comment2" cols="40" rows="10" placeholder="Комментарий" class="textarea form-control" required="" id="id_comment2">{{clients.comment2}}</textarea> </div> </div> 
+            <div id="div_id_comment3" class="form-group"> <label for="id_comment3" class=" requiredField">
+                Третий комментарий<span class="asteriskField">*</span> </label> <div class=""> <textarea name="comment3" cols="40" rows="10" placeholder="Комментарий" class="textarea form-control" required="" id="id_comment3">{{clients.comment3}}</textarea> </div> </div> 
+            <div id="div_id_sel1" class="form-group"> <label for="id_sel1" class=" requiredField">
+                Первый выпадающий список<span class="asteriskField">*</span> </label> <div class=""> <select name="sel1" class="select form-control" id="id_sel1" aria-valuenow="{{clients.sel1}}"> <option value="1">One</option> <option value="2">Two</option> <option value="3">Three</option></select> </div> </div> 
+            <div id="div_id_sel2" class="form-group"> <label for="id_sel2" class=" requiredField">
+                Второй выпадающий список<span class="asteriskField">*</span> </label> <div class=""> <select name="sel2" class="select form-control" id="id_sel2" aria-valuenow="{{clients.sel2}}"> <option value="1">One</option> <option value="2">Two</option> <option value="3">Three</option></select> </div> </div> 
+            <div id="div_id_sel3" class="form-group"> <label for="id_sel3" class=" requiredField">
+                Третий выпадающий список<span class="asteriskField">*</span> </label> <div class=""> <select name="sel3" class="select form-control" id="id_sel3" aria-valuenow="{{clients.sel3}}"> <option value="1">One</option> <option value="2">Two</option> <option value="3">Three</option></select> </div> </div>
+
+            <input type="submit" value="Сохранить" class="btn btn-success form-control">
+        </form>
+    </div>
+{% endblock %}
